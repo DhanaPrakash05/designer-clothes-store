@@ -1,0 +1,77 @@
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(5, 36, 193),
+    rgb(180, 188, 220)
+  );
+  color: rgb(0, 0, 0);
+  padding: 1px;
+}
+.header > div {
+  margin: 10px;
+}
+#title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 3em;
+  font-weight: bolder;
+  text-shadow: -4px -4px 4px rgba(0, 0, 0, 0.5);
+}
+.create_account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create_account > img {
+  height: 50px;
+  width: 50px;
+}
+.create_account img:hover {
+  transform: scale(1.2);
+}
+
+.header > :first-of-type img {
+  height: 80px;
+  width: 80px;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+ right: 0%;
+  top: 55%;
+}
+.dropdown:hover {
+  display: block;
+}
+.dropdown li {
+  text-decoration: none;
+  background-color: rgb(218, 215, 250);
+  padding: 10px;
+  border: 2px solid rgb(128, 126, 224);
+  height: 30px;
+  width: 60px;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bolder;
+  margin-top: 2px;
+}
+.dropdown ul {
+  list-style-type: none;
+}
+.create_account img:hover + .dropdown {
+  display: block;
+}
+.dropdown li:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 2px solid rgb(128, 126, 224);
+}
