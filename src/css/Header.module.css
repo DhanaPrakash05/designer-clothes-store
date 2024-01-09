@@ -1,20 +1,16 @@
 * {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 .header {
   position: sticky;
-  top: 0;
+  top: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(5, 36, 193),
-    rgb(180, 188, 220)
-  );
+  background-color: white;
   color: rgb(0, 0, 0);
   padding: 1px;
+  box-shadow: 2px 0px 20px black;
 }
 .header > div {
   margin: 10px;
@@ -31,13 +27,9 @@
   align-items: center;
 }
 .create_account > img {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
 }
-.create_account img:hover {
-  transform: scale(1.2);
-}
-
 .header > :first-of-type img {
   height: 80px;
   width: 80px;
@@ -45,20 +37,23 @@
 .dropdown {
   display: none;
   position: absolute;
- right: 0%;
-  top: 55%;
+  right: 0%;
+  top: 65%;
+  right: 0.5%;
+  transition: transform 0.1s ease-out;
 }
 .dropdown:hover {
   display: block;
 }
 .dropdown li {
   text-decoration: none;
-  background-color: rgb(218, 215, 250);
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 2px solid black;
   padding: 10px;
-  border: 2px solid rgb(128, 126, 224);
   height: 30px;
   width: 60px;
-  border-radius: 12px;
+  border-radius: 10px;
   text-align: center;
   line-height: 25px;
   font-weight: bolder;
@@ -67,11 +62,13 @@
 .dropdown ul {
   list-style-type: none;
 }
-.create_account img:hover + .dropdown {
+.create_account :hover .dropdown{
+ transform: scale(1.2);
   display: block;
+  transform: translateX(-20%);
 }
 .dropdown li:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  border: 2px solid rgb(128, 126, 224);
+  background-color: rgb(5, 5, 5);
+  border: 2px solid rgb(6, 6, 6);
+  color: rgb(255, 250, 250);
 }

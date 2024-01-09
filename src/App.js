@@ -1,10 +1,11 @@
-
-import Heading from './Header.js';
+import Header from './Header.js';
+import Home from './Home.js';
 
 function App() {
   return (
     <div>
-      <Heading />
+     
+      <Home/>
     </div>
   );
 }

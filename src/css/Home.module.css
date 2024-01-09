@@ -1,0 +1,32 @@
+.background{
+    background-color: rgb(222, 221, 221);
+    height: 100vh;
+}
+.container{
+    height :70%;
+    width: 90%;
+    background-image: linear-gradient(
+        to right,
+        rgb(207, 207, 207),
+        rgb(56, 56, 56)
+      );
+    margin-top:5%;
+    margin-left:5%;
+    box-shadow: 15px 15px 10px rgb(124, 124, 124) ;
+}
+.loginBox{
+    display:none;
+    height:50vh;
+    width: 40vh;
+    background-image: linear-gradient(
+        to top,
+        rgb(80, 80, 81),
+        rgb(111, 111, 112)
+      );
+      position:absolute;
+      top:20%;
+      right:38%;
+}
+.create_account:hover{
+    background-color: pink;
+}
