@@ -1,4 +1,4 @@
-import Header from './Header.js';
+
 import Home from './Home.js';
 
 function App() {
