@@ -19,7 +19,6 @@ const Home = () => {
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000);
-
     return () => clearInterval(slideshowInterval);
   }, [currentImageIndex, images.length]);
 
@@ -44,10 +43,15 @@ const Home = () => {
         </div>
       </div>
       <div className={css.navBar}>
-        <a href="/">Option 1</a>
-        <a href="/">Option 2</a>
-        <a href="/">Option 3</a>
-        <a href="/">Option 4</a>
+        <div><a>About</a></div>
+        <div><a>Trending</a></div>
+        <div><a>Profile</a></div>
+        <div><a>Designers</a></div>
+      </div>
+
+      <div className={css.dummy1}>
+      </div>
+      <div className={css.dummy2}>
       </div>
     </div>
   );

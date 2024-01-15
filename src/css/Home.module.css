@@ -78,22 +78,7 @@
   filter: grayscale(90%);
   height: 100vh;
   width: 100%;
-
-
 }
-/* .container {
-  height: 70%;
-  width: 90%;
-  background-image: linear-gradient(
-    to right,
-    rgb(207, 207, 207),
-    rgb(56, 56, 56)
-  );
-  margin-top: 5%;
-  margin-left: 5%;
-  box-shadow: 15px 15px 10px rgb(124, 124, 124);
-}  */
-
 .header:hover +.navBar {
   height: 40px; 
   opacity: 0.8;
@@ -118,8 +103,48 @@
   opacity: 0.8;
   overflow: hidden;
 }
-.navBar a{
-  text-decoration: none;
-  color: aliceblue;
+.navBar div {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
 }
 
+.navBar div::before {
+  content: "";
+  position: absolute;
+  left:0;
+  width: 0; 
+  height: 100%;
+  background-color: white;
+  transition: width 0.5s ease;
+}
+
+.navBar div a{
+  font-size: 20px;
+}
+
+.navBar div:hover::before {
+  width: 100%; 
+}
+.navBar div:hover{
+  color: black;
+  z-index: 1;
+}
+.navBar div:hover a{
+  z-index: 1;
+  color: black;
+}
+
+.dummy1{
+  height: 100%;
+  width: 100%;
+}
+.dummy2{
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+}
