@@ -28,7 +28,7 @@ const Home = () => {
     <div className={css.background} style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
      <Header/>
      <div className={css.quote}>
-      <p>Wear it only if it's exclusive!</p>
+      <p>Wear it only if </p>
      </div>
     </div>
      <div className={css.styleFeed}>
