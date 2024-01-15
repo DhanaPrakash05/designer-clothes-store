@@ -1,10 +1,11 @@
 import React from "react";
-import user_icon from "./images/user-icon.jpg";
-import crown from "./images/crown.svg";
 import css from "./css/Home.module.css";
 import { useState, useEffect } from "react";
+import Header from "./Header";
+
 
 const Home = () => {
+  
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
     require("./images/slideshow1.jpg"),
@@ -23,37 +24,17 @@ const Home = () => {
   }, [currentImageIndex, images.length]);
 
   return (
-    <div
-      className={css.background}
-      style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
-    >
-      <div className={css.header}>
-        <div>
-          <img src={crown} alt="crown" />
-        </div>
-        <div id={css.title}>IMPERIUM</div>
-        <div className={css.create_account}>
-          <img id={css.icon} src={user_icon} alt="icon" />
-          <div className={css.dropdown}>
-            <ul>
-              <li>Sign Up</li>
-              <li>Log In</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className={css.navBar}>
-        <div><a>About</a></div>
-        <div><a>Trending</a></div>
-        <div><a>Profile</a></div>
-        <div><a>Designers</a></div>
-      </div>
-
-      <div className={css.dummy1}>
-      </div>
-      <div className={css.dummy2}>
-      </div>
+    <div>
+    <div className={css.background} style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
+     <Header/>
+     <div className={css.quote}>
+      <p>Wear it only if it's exclusive!</p>
+     </div>
     </div>
+     <div className={css.styleFeed}>
+
+     </div>
+     </div>
   );
 };
 export default Home;

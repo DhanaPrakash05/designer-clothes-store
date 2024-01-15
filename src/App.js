@@ -4,7 +4,6 @@ import Home from './Home.js';
 function App() {
   return (
     <div>
-     
       <Home/>
     </div>
   );
