@@ -1,0 +1,50 @@
+.footerContainer{
+    margin-top: 50px;
+    height: 330px;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: aliceblue;
+}
+.footerContainer a{
+    display: block;
+    padding: 5px;
+}
+.help{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-left: 90px;
+}
+.about{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-left: 90px;
+}
+.socialMedia{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-left: 70px;
+}
+.socialMedia img{
+    height: 50px;
+    width: 50px;
+    padding-right: 15px;
+}
+
+.end{
+    height: 50px;
+    display: flex;
+    background-color: rgb(15, 15, 15);
+    color: aliceblue;
+    justify-content: flex-end;
+}
+.end span{
+    padding: 10px;
+}
