@@ -99,6 +99,7 @@
   height: 0;
   opacity: 0.8;
   overflow: hidden;
+  z-index: 0;
 }
 .navBar div {
   position: relative;
@@ -129,10 +130,9 @@
 }
 .navBar div:hover{
   color: black;
-  z-index: 1;
 }
 .navBar div:hover a{
-  z-index: 1;
+ z-index: 1;
   color: black;
 }
 

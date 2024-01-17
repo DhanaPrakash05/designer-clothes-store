@@ -42,6 +42,7 @@ const Home = () => {
     require("./images/slideshow3.jpg"),
     require("./images/slideshow2.jpg"),
     require("./images/slideshow4.jpg"),
+    require("./images/slideshow5.jpg"),
   ];
 
   useEffect(() => {
@@ -52,7 +53,16 @@ const Home = () => {
     }, 3000);
     return () => clearInterval(slideshowInterval);
   }, [currentImageIndex, images.length]);
-
+  useEffect(() => {
+    const focusSearchInput = () => {
+      const searchInput = document.querySelector(`.${css.input}`);
+      if (searchInput) {
+        searchInput.focus();
+      }
+    };
+    const focusTimeout = setTimeout(focusSearchInput, 1000);
+    return () => clearTimeout(focusTimeout);
+  }, []);
   return (
     <div>
       <div
@@ -63,6 +73,7 @@ const Home = () => {
         <div className={css.quote}>
           <p>Wear it only if it's exclusive!</p>
         </div>
+
         <div className={css.searchbar}>
           <input
             className={css.input}
@@ -70,11 +81,13 @@ const Home = () => {
             placeholder="Seach  something"
             aria-label="search"
           />
+
           <button className={css.searchSymbol}>
             <FontAwesomeIcon icon={faSearch} aria-label="searchSymbol" />
           </button>
         </div>
       </div>
+
       <div className={css.styleFeedContainer}>
         <div>
           <p>Style Feed</p>
@@ -127,10 +140,13 @@ const Home = () => {
         <div>View All</div>
       </div>
       <div className={css.app}>
-        <div><p>The Imperium App</p><img src={crown}/></div>
+        <div>
+          <p>The Imperium App</p>
+          <img src={crown} />
+        </div>
         <div>Download now</div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
