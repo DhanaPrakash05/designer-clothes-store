@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styles from './css/SearchBar.module.css'; // Use 'styles' instead of 'css'
+import React, { useState } from "react";
+import styles from "./css/SearchBar.module.css";
 
 const SearchBar = () => {
   const [expanded, setExpanded] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const handleToggle = () => {
     setExpanded(!expanded);
@@ -15,12 +15,11 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to handle the search query (e.g., fetch search results)
-    console.log('Search query:', query);
+    console.log("Search query:", query);
   };
 
   return (
-    <div className={`${styles.searchBar} ${expanded ? styles.expanded : ''}`}>
+    <div className={`${styles.searchBar} ${expanded ? styles.expanded : ""}`}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

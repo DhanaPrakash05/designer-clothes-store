@@ -48,13 +48,12 @@
 }
 .SignUp {
   opacity: 0;
-  height: 700px;
+  height: 800px;
   width: 500px;
   margin-left: 650px;
-  margin-top: 120px;
+  margin-top: 30px;
   background: linear-gradient(to left, rgb(6, 119, 157), rgb(255, 255, 255));
   box-shadow: -20px 20px 20px black;
-  /* z-index: 1; */
 }
 .Login.fromRight {
   animation: fromRight 0.5s ease-out;
@@ -121,15 +120,15 @@
   font-size: 22px;
   width: 70%;
   height: 10%;
-  /* border: none; */
+  outline:none
 }
-.Login form input:nth-child(4) {
+.submitBtn {
   background-color: rgb(0, 0, 0);
   color: white;
   transition: transform 0.5s ease;
 }
 
-.Login form input:nth-child(4):hover {
+.submitBtn:hover {
   background-color: rgb(255, 153, 0);
   color: rgb(0, 0, 0);
   transform: scale(1.1);
@@ -170,7 +169,7 @@
   font-size: 20px;
   width: 70%;
   height: 9%;
-  /* border: none; */
+  outline: none;
 }
 
 .SignUp form h3 {
@@ -180,14 +179,12 @@
 .SignUp .toggle h4 {
   margin-top: 0px;
 }
-.SignUp form input:nth-child(7) {
-  background-color: rgb(0, 0, 0);
-  color: white;
-  transition: transform 0.5s ease;
-}
-.SignUp form input:nth-child(7):hover {
-  background-color: rgb(255, 153, 0);
-  color: rgb(0, 0, 0);
-  transform: scale(1.1);
-}
 
+
+
+.redBorder {
+  border: 2px solid #FF0000;
+}
+.error{
+ color: #ad0606;
+}
