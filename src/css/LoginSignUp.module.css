@@ -38,13 +38,12 @@
 }
 .Login {
   opacity: 0;
-  height: 650px;
+  height: 670px;
   width: 500px;
   margin-left: 650px;
   margin-top: 120px;
   background: linear-gradient(to left, rgb(6, 119, 157), rgb(255, 255, 255));
   box-shadow: -20px 20px 20px black;
-  /* z-index: 1; */
 }
 .SignUp {
   opacity: 0;

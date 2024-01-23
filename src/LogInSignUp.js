@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import css from "./css/LoginSignUp.module.css";
+import axios from 'axios';
 
 const LogInSignUp = (props) => {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
@@ -239,7 +240,7 @@ const LogInSignUp = (props) => {
       setLoginSubmitError("");
     }
   };
-  const handleSignUpSubmit = (e) => {
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     if (
       usernameError ||
@@ -261,6 +262,18 @@ const LogInSignUp = (props) => {
       return;
     } else {
       setSignUpSubmitError("");
+      try {
+        const response = await axios.post('http://localhost:3500/signup', {
+          username,
+          email,
+          mobileNumber,
+          password
+        });
+        console.log('Server response:', response.data);
+      } catch (error) {
+        console.error('Error during signup:', error);
+        setSignUpSubmitError("Error during signup. Please try again.");
+      }
     }
   };
 
@@ -275,21 +288,20 @@ const LogInSignUp = (props) => {
           <form>
             <h3>LOGIN</h3>
             <input
-              type="text"
-              id="username"
-              placeholder="Username"
-              value={username}
-              onChange={handleNameChange}
-              onFocus={handleNameFocus}
-              onBlur={handleNameBlur}
+              type="email"
+              autoComplete={false}
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailChange}
+              onFocus={handleEmailFocus}
+              onBlur={handleEmailBlur}
               className={
-                shouldApplyRedBorder(isNameFocused, username, "username")
+                shouldApplyRedBorder(isEmailFocused, email, "email")
                   ? css.redBorder
                   : ""
               }
             />
-
-            {usernameError && <div className={css.error}>{usernameError}</div>}
+            {emailError && <div className={css.error}>{emailError}</div>}
 
             <input
               type="password"
