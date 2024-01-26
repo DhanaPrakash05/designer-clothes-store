@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import css from "./css/LoginSignUp.module.css";
-import axios from 'axios';
+import axios from "axios";
 
 const LogInSignUp = (props) => {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
@@ -136,19 +136,15 @@ const LogInSignUp = (props) => {
   };
   const shouldApplyRedBorder = (isFocused, input, caller) => {
     if (caller === "username") {
-      return (
-        isFocused &&
-        (input.length < 8 ||
-          /\s/.test(input) ||
-          input === null ||
-          /[_1-9]/.test(input.charAt(0)))
-      );
+      return isFocused && usernameError !== "";
     } else if (caller === "password") {
-      return (
-        isFocused &&
-        (input.length < 8 ||
-          !/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^\w\d]).*$/.test(input))
-      );
+      return isFocused && passwordError !== "";
+    } else if (caller === "mobileNumber") {
+      return isFocused && mobileNumberError !== "";
+    } else if (caller === "email") {
+      return isFocused && emailError !== "";
+    } else if (caller === "confirmPassword") {
+      return isFocused && confirmPasswordError !== "";
     }
   };
   const validateUsername = (input) => {
@@ -263,15 +259,15 @@ const LogInSignUp = (props) => {
     } else {
       setSignUpSubmitError("");
       try {
-        const response = await axios.post('http://localhost:3500/signup', {
+        const response = await axios.post("http://localhost:3500/signup", {
           username,
           email,
           mobileNumber,
-          password
+          password,
         });
-        console.log('Server response:', response.data);
+        console.log("Server response:", response.data);
       } catch (error) {
-        console.error('Error during signup:', error);
+        console.error("Error during signup:", error);
         setSignUpSubmitError("Error during signup. Please try again.");
       }
     }

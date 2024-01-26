@@ -63,6 +63,13 @@ const Home = () => {
     const focusTimeout = setTimeout(focusSearchInput, 1000);
     return () => clearTimeout(focusTimeout);
   }, []);
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const holdPosition = () => {
+    setIsExpanded(false);
+  };
+  console.log(isExpanded);
   return (
     <div>
       <div
@@ -74,7 +81,7 @@ const Home = () => {
           <p>Wear it only if it's exclusive!</p>
         </div>
 
-        <div className={css.searchbar}>
+        <div className={css.searchbar} onLoad={holdPosition} >
           <input
             className={css.input}
             type="text"
@@ -82,7 +89,7 @@ const Home = () => {
             aria-label="search"
           />
 
-          <button className={css.searchSymbol}>
+          <button className={css.searchSymbol} >
             <FontAwesomeIcon icon={faSearch} aria-label="searchSymbol" />
           </button>
         </div>

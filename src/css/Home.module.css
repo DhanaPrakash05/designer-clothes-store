@@ -159,6 +159,25 @@
     box-shadow: 0 0 10px black;
   }
 }
+/* .searchbarOverride {
+  width: 22%;
+  background-color: white;
+
+  .input {
+    opacity: 1;
+    width: calc(100% - 60px);
+  }
+  .input:hover {
+    cursor: initial;
+  }
+  .searchSymbol {
+    background: black;
+    color: white;
+  }
+  .searchSymbol:hover {
+    box-shadow: 0 0 10px black;
+  }
+} */
 .app {
   height: 250px;
   width: 100%;

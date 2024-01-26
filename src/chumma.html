@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    input{
+        outline:none;
+    }
+    .red-border {
+        /* border:none; */
+      border: 2px solid #FF0000; 
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const textField = document.getElementById('myTextField');
+
+      textField.addEventListener('focus', function () {
+        textField.classList.add('red-border');
+      });
+
+      textField.addEventListener('blur', function () {
+        textField.classList.remove('red-border');
+      });
+
+      textField.addEventListener('input', function () {
+        const inputValue = textField.value;
+
+        if (inputValue.length >= 8) {
+          textField.classList.remove('red-border');
+        } else {
+          textField.classList.add('red-border');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <label for="myTextField">Enter text:</label>
+  <input type="text" id="myTextField" />
+</body>
+</html>
