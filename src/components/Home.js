@@ -1,18 +1,18 @@
 import React from "react";
-import css from "./css/Home.module.css";
+import css from "../css/Home.module.css";
 import { useState, useEffect, useRef } from "react";
 import Header from "./Header";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import img1 from "./images/stylefeed1.jpg";
-import img2 from "./images/stylefeed2.jpg";
-import img3 from "./images/stylefeed3.jpg";
-import img4 from "./images/stylefeed4.jpg";
-import img5 from "./images/stylefeed5.jpg";
-import img6 from "./images/stylefeed6.jpg";
-import img7 from "./images/stylefeed7.jpg";
-import img8 from "./images/stylefeed8.jpg";
-import crown from "./images/crown2.jpg";
+import img1 from "../images/stylefeed1.jpg";
+import img2 from "../images/stylefeed2.jpg";
+import img3 from "../images/stylefeed3.jpg";
+import img4 from "../images/stylefeed4.jpg";
+import img5 from "../images/stylefeed5.jpg";
+import img6 from "../images/stylefeed6.jpg";
+import img7 from "../images/stylefeed7.jpg";
+import img8 from "../images/stylefeed8.jpg";
+import crown from "../images/crown2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
@@ -38,11 +38,11 @@ const Home = () => {
   };
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    require("./images/slideshow1.jpg"),
-    require("./images/slideshow3.jpg"),
-    require("./images/slideshow2.jpg"),
-    require("./images/slideshow4.jpg"),
-    require("./images/slideshow5.jpg"),
+    require("../images/slideshow5.jpg"),
+    require("../images/slideshow1.jpg"),
+    require("../images/slideshow3.jpg"),
+    require("../images/slideshow2.jpg"),
+    require("../images/slideshow4.jpg"),
   ];
 
   useEffect(() => {
@@ -64,12 +64,6 @@ const Home = () => {
     return () => clearTimeout(focusTimeout);
   }, []);
 
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const holdPosition = () => {
-    setIsExpanded(false);
-  };
-  console.log(isExpanded);
   return (
     <div>
       <div
@@ -81,7 +75,7 @@ const Home = () => {
           <p>Wear it only if it's exclusive!</p>
         </div>
 
-        <div className={css.searchbar} onLoad={holdPosition} >
+        <div className={css.searchbar}>
           <input
             className={css.input}
             type="text"
@@ -89,7 +83,7 @@ const Home = () => {
             aria-label="search"
           />
 
-          <button className={css.searchSymbol} >
+          <button className={css.searchSymbol}>
             <FontAwesomeIcon icon={faSearch} aria-label="searchSymbol" />
           </button>
         </div>
@@ -115,7 +109,7 @@ const Home = () => {
             <div className={css.elements}>
               <img src={img2}></img>
               <p>Stay cosy</p>
-              <p>Be comfortable with your company</p>
+              <p>Enjoy your own company</p>
             </div>
             <div className={css.elements}>
               <img src={img6}></img>
@@ -148,10 +142,9 @@ const Home = () => {
       </div>
       <div className={css.app}>
         <div>
-          <p>The Imperium App</p>
+          <p>PREMIUM SUBSCRIPTION</p>
           <img src={crown} />
         </div>
-        <div>Download now</div>
       </div>
       <Footer />
     </div>

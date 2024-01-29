@@ -1,6 +1,14 @@
 * {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+@keyframes w {
+  0%{
+    width:0%;
+  }
+  100%{
+    width:22%
+  }
+}
 .background {
   background-color: rgb(17, 17, 17);
   height: 100vh;
@@ -109,6 +117,7 @@
   overflow: hidden;
   margin-left: 36%;
   margin-top: -4%;
+  animation: w 0.7s  1s  forwards;
 }
 
 .input {
@@ -159,25 +168,7 @@
     box-shadow: 0 0 10px black;
   }
 }
-/* .searchbarOverride {
-  width: 22%;
-  background-color: white;
 
-  .input {
-    opacity: 1;
-    width: calc(100% - 60px);
-  }
-  .input:hover {
-    cursor: initial;
-  }
-  .searchSymbol {
-    background: black;
-    color: white;
-  }
-  .searchSymbol:hover {
-    box-shadow: 0 0 10px black;
-  }
-} */
 .app {
   height: 250px;
   width: 100%;

@@ -1,8 +1,8 @@
 import React from "react";
-import css from "./css/footer.module.css";
-import insta from "./images/insta.svg";
-import fb from "./images/facebook.svg";
-import linkedin from "./images/linkedin.svg";
+import css from "../css/footer.module.css";
+import insta from "../images/insta.svg";
+import fb from "../images/facebook.svg";
+import linkedin from "../images/linkedin.svg";
 const Footer = () => {
   return (
     <div>

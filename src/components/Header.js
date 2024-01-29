@@ -1,19 +1,24 @@
 import React from "react";
-import user_icon from "./images/user-icon.jpg";
-import crown from "./images/crown.svg";
-import css from "./css/Header.module.css";
+import user_icon from "../images/user-icon.jpg";
+import crown from "../images/crown.svg";
+import css from "../css/Header.module.css";
 import LogInSignUp from "./LogInSignUp";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = (pro) => {
   const [value, setValue] = useState(null);
   const chooseValue = (val) => {
     setValue(val);
   };
+  const navigate=useNavigate();
+  function goToCategories(){
+    navigate('/components/Categories');
+  }
   return (
     <div className={css.headContainer}>
-      {value && <LogInSignUp props={value} Hide={() => setValue(null)}  />}
-      <div className={css.header}>
+      {value && <LogInSignUp props={value} Hide={() => setValue(null)} />}
+      <div className={css.header} >
         <div>
           <img src={crown} alt="crown" />
         </div>
@@ -29,17 +34,19 @@ const Header = (pro) => {
         </div>
       </div>
       <div className={css.navBar}>
-        <div>
-          <a>About</a>
+        <div onClick={goToCategories}>
+          
+          <a>Categories</a>
+        
         </div>
         <div>
-          <a>Trending</a>
+          <a>Tailors</a>
         </div>
         <div>
-          <a>Profile</a>
+          <a>Services</a>
         </div>
         <div>
-          <a>Designers</a>
+          <a>About us</a>
         </div>
       </div>
     </div>

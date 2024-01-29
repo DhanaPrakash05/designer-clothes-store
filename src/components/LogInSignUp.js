@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import css from "./css/LoginSignUp.module.css";
+import css from "../css/LoginSignUp.module.css";
 import axios from "axios";
 
 const LogInSignUp = (props) => {
@@ -226,10 +226,10 @@ const LogInSignUp = (props) => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    if (usernameError || passwordError) {
+    if (emailError || passwordError) {
       setLoginSubmitError("Invalid details. Please check your input.");
       return;
-    } else if (username === "" || password === "") {
+    } else if (email === "" || password === "") {
       setLoginSubmitError("Fill all the fields");
       return;
     } else {
