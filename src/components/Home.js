@@ -95,7 +95,7 @@ const Home = () => {
           <p>Outfit ideas, editors pick, trending</p>
         </div>
         <div className={css.styleFeed}>
-          <Carousel responsive={responsive} infinite={true} autoPlay={true}>
+          <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
             <div className={css.elements}>
               <img src={img1}></img>
               <p>Tour picks</p>

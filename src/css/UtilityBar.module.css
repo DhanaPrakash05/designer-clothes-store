@@ -1,0 +1,76 @@
+@keyframes searchBarAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+.container {
+  z-index: 1;
+  width: 0%;
+  height: 55px;
+  border:1px solid black;
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255));
+  position: sticky;
+  top: 20px;
+  left: 70px;
+  border-radius: 50px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  animation: searchBarAnimation 0.7s 0.3s forwards;
+}
+.searchBar {
+  position: relative;
+  left: 58%;
+  outline: none;
+  height: 20%;
+  font-size: 22px;
+  border-radius: 30px 0px 0px 30px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border: 2px solid rgb(88, 87, 87);
+  width: 18%;
+}
+
+
+
+.container img {
+  height: 40px;
+  width: 13%;
+  transition: transform 0.3s ease;
+}
+
+.icons {
+  position: relative;
+  left: 60%;
+  width: 17%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.searchBtn {
+  border-radius: 0px 30px 30px 0px;
+  position: relative;
+  border: none;
+  left: 57.9%;
+  height: 34.5px;
+  border:1px solid black;
+  background-color: rgb(48, 48, 48);
+  width:40px;
+}
+.searchBtn img {
+  height: 25px;
+  width: 25px;
+}
+.searchBtn:hover{
+  box-shadow: 4px 4px 4px rgb(0, 0, 0,0.3);
+  cursor:pointer;
+}

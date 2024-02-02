@@ -1,20 +1,56 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+const cors = require('cors');
+
 const app = express();
-const cors = require("cors");
-app.use(express.json());
+const port = 3001;
+
 app.use(cors());
-mongoose.connect("mongodb://127.0.0.1:27017/clothShop", {});
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", () => {
-  console.log("Connected to MongoDB");
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    
+    const originalName = file.originalname;
+    const imageName = originalName.substring(0, originalName.lastIndexOf('.'));
+    console.log( req .file)
+    const extension = path.extname(file.originalname);
+    const fullFileName = `${imageName}${extension}`;
+    cb(null, fullFileName);
+  },
 });
-app.get("/signup", (req, res) => {
-  res.send("hi");
-  console.log("Connected to MongoDB");
+
+const upload = multer({ storage: storage });
+
+
+app.use('/uploads', express.static('uploads'));
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  res.send('Image uploaded successfully!');
 });
-const PORT = 3500;
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
+
+
+app.get('/image/:name', (req, res) => {
+  const imageName = req.params.name;
+  const imagePath = path.join(__dirname, 'uploads', imageName);
+
+
+  if (fs.existsSync(imagePath)) {
+    res.sendFile(imagePath);
+  } else {
+    res.status(404).send('Image not found');
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
