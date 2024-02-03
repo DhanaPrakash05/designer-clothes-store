@@ -9,8 +9,8 @@ const ImageUploader = () => {
   const [imageDescription, setImageDescription] = useState("");
   const [section, setSection] = useState("");
   const [displayedImage, setDisplayedImage] = useState(null);
-  const [price, setPrice] = useState(null);
-  const [type, setType] = useState(null);
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState('');
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];

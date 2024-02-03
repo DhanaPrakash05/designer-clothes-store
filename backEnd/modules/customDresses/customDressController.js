@@ -6,9 +6,9 @@ const uploadController = {
   handleUpload: async (req, res) => {
     try {
       const {  name, price , dressType, description, section} = req.body;
-      let image;
+      let dress;
       if (section === "Men") {
-        image = new Sections.Men({
+        dress = new Sections.Men({
           name,
            price,
            dressType,
@@ -16,7 +16,7 @@ const uploadController = {
          
         });
       } else if (section === "Women") {
-        image = new Sections.Women({
+        dress = new Sections.Women({
           name,
           price,
           dressType,
@@ -25,7 +25,7 @@ const uploadController = {
         });
       }
        else if (section === "Kids") {
-        image = new Sections.Kids({
+        dress = new Sections.Kids({
           name,
           price,
           dressType,
@@ -33,7 +33,7 @@ const uploadController = {
        
         });
       }
-      await image.save();
+      await dress.save();
 
       res
         .status(200)
@@ -64,19 +64,19 @@ const uploadController = {
     try {
       const name=req.params.name;
       const section=req.params.section;
-      let imageMetadata;
+      let dressMetadata;
       if(section==="Men"){
-      imageMetadata = await Sections.Men.findOne({ name });
+      dressMetadata = await Sections.Men.findOne({ name });
       }
       else if(section==="Women"){
-      imageMetadata = await Sections.Women.findOne({ name });
+      dressMetadata = await Sections.Women.findOne({ name });
       }
       if(section==="Kids"){
-      imageMetadata = await Sections.Kids.findOne({ name });
+      dressMetadata = await Sections.Kids.findOne({ name });
       }
 
-      if (imageMetadata) {
-        res.status(200).json(imageMetadata);
+      if (dressMetadata) {
+        res.status(200).json(dressMetadata);
       } else {
         console.error("Error retrieving image metadata:", error);
         res.status(404).send("Image metadata not found");
@@ -89,25 +89,25 @@ const uploadController = {
 
   getAllDressesMetadata: async (req, res) => {
     const  section  = req.params.section;
-    let allImageMetadata;
+    let alldressMetadata;
     try {
       if (section === "Men") {
-        allImageMetadata = await Sections.Men.find(
+        alldressMetadata = await Sections.Men.find(
           {},
           "name price dressType description "
         );
       } else if(section === "Women"){
-        allImageMetadata = await Sections.Women.find(
+        alldressMetadata = await Sections.Women.find(
           {},
           "name price dressType  description "
         );
       } else if(section === "Kids"){
-        allImageMetadata = await Sections.Kids.find(
+        alldressMetadata = await Sections.Kids.find(
           {},
           "name price dressType  description "
         );
       }
-      res.status(200).json(allImageMetadata);
+      res.status(200).json(alldressMetadata);
     } catch (error) {
       console.error("Error retrieving all image metadata:", error);
       res.status(500).json({ error: "Internal server error" });

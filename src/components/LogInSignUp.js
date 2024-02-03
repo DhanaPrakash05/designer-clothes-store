@@ -224,7 +224,7 @@ const LogInSignUp = (props) => {
     setConfirmPasswordError(error);
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (emailError || passwordError) {
       setLoginSubmitError("Invalid details. Please check your input.");
@@ -234,6 +234,20 @@ const LogInSignUp = (props) => {
       return;
     } else {
       setLoginSubmitError("");
+      try {
+        const response = await axios.post("http://localhost:3001/login", {
+          email,
+          password,
+        },{
+          withCredentials:true
+        });
+        console.log("Server response:", response.data);
+      } catch (error) {
+        const {email,password} =error.response.data;
+        setEmailError(email);
+        setPasswordError(password);
+        setLoginSubmitError("Error during login. Please try again.");
+      }
     }
   };
   const handleSignUpSubmit = async (e) => {
@@ -259,15 +273,20 @@ const LogInSignUp = (props) => {
     } else {
       setSignUpSubmitError("");
       try {
-        const response = await axios.post("http://localhost:3500/signup", {
+        const response = await axios.post("http://localhost:3001/signup", {
           username,
           email,
           mobileNumber,
           password,
-        });
-        console.log("Server response:", response.data);
+        }, {
+          withCredentials: true,
+      }); 
+        console.log("successfully signed in", response.data);
       } catch (error) {
-        console.error("Error during signup:", error);
+        const { username, email, mobileNumber, password } = error.response.data;
+        setUsernameError(username);
+        setEmailError(email);
+        setMobileNumberError(mobileNumber);
         setSignUpSubmitError("Error during signup. Please try again.");
       }
     }

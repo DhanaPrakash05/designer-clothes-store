@@ -81,8 +81,8 @@ const Categories = () => {
           autoPlaySpeed={1900}
           // arrows={null}
         >
-           {womenDressData.map((womenDress) => (
-           <div className={css.elements}  key={true}>
+          {womenDressData.map((womenDress) => (
+            <div className={css.elements} key={womenDress.name}>
               <img
                 src={`http://localhost:3001/image/${womenDress.name}`}
                 alt={womenDress.name}
@@ -118,8 +118,8 @@ const Categories = () => {
           autoPlaySpeed={1900}
           arrows={null}
         >
-           {menDressData.map((menDress) => (
-           <div className={css.elements}  key={true}>
+          {menDressData.map((menDress) => (
+            <div className={css.elements} key={menDress.name}>
               <img
                 src={`http://localhost:3001/image/${menDress.name}`}
                 alt={menDress.name}
@@ -155,8 +155,8 @@ const Categories = () => {
           autoPlaySpeed={1900}
           arrows={null}
         >
-            {kidsDressData.map((kidsDress) => (
-           <div className={css.elements}  key={true}>
+          {kidsDressData.map((kidsDress) => (
+            <div className={css.elements} key={kidsDress.name}>
               <img
                 src={`http://localhost:3001/image/${kidsDress.name}`}
                 alt={kidsDress.name}
@@ -186,4 +186,3 @@ const Categories = () => {
   );
 };
 export default Categories;
-

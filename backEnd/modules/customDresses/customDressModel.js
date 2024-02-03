@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const imageSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -18,9 +18,9 @@ const imageSchema = new mongoose.Schema({
 });
 
 
-const Men = mongoose.model('Men', imageSchema);
-const Women = mongoose.model('Women', imageSchema);
-const Kids = mongoose.model('Kids', imageSchema);
+const Men = mongoose.model('Men', schema);
+const Women = mongoose.model('Women', schema);
+const Kids = mongoose.model('Kids', schema);
 
 module.exports = {Men,Women,Kids};
 
