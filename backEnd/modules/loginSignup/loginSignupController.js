@@ -40,7 +40,6 @@ const signup = async (req, res) => {
     await user.save();
     const token = authController.createToken(user.username);
     res.cookie("jwt", token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
-
     res.status(201).json(user.username);
   } catch (err) {
     const errors = handleErrors(err);
@@ -57,11 +56,20 @@ const login = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
     res.status(200).json(user.username);
   } catch (err) {
-
+    
     const errors = handleErrors(err);
     res.status(400);
     res.send(errors);
   }
 };
 
-module.exports = { signup, login };
+const logout=(req,res)=>{
+  try{
+  res.cookie("jwt", "", { httpOnly: true, maxAge: 1});
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+
+module.exports = { signup, login ,logout};

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 // import 'react-multi-carousel/lib/styles.css';
-import css from '../css/Categories.module.css'
+import css from "../css/Menu.module.css";
 const ImageUploader = () => {
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("");
@@ -10,7 +10,7 @@ const ImageUploader = () => {
   const [section, setSection] = useState("");
   const [displayedImage, setDisplayedImage] = useState(null);
   const [price, setPrice] = useState(0);
-  const [type, setType] = useState('');
+  const [type, setType] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -91,10 +91,12 @@ const ImageUploader = () => {
   useEffect(() => {
     const fetchAllImageMetadata = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/all/metaData/Women`);
+        const response = await axios.get(
+          `http://localhost:3001/all/metaData/Women`
+        );
         setAllImageMetadata(response.data);
       } catch (error) {
-        console.error('Error retrieving all image metadata:', error);
+        console.error("Error retrieving all image metadata:", error);
       }
     };
 
@@ -171,17 +173,21 @@ const ImageUploader = () => {
         </div>
       )}
       <button onClick={handleDisplayAll}>Display All Images</button>
-       <div className={css.dummy}>
-      <Carousel responsive={responsive} autoPlay={true}>
-      {allImageMetadata.map((imageMetadata) => (
-        <div key={imageMetadata.imageName}>
-          <h3>{imageMetadata.name}</h3>
-          <p>{imageMetadata.description}</p>
-          <img src={`http://localhost:3001/image/${imageMetadata.name}`} alt={imageMetadata.name} style={{ maxWidth: '100%' }} />
-        </div>
-      ))}
-    </Carousel>
-    </div>
+      <div className={css.dummy}>
+        <Carousel responsive={responsive} autoPlay={true}>
+          {allImageMetadata.map((imageMetadata) => (
+            <div key={imageMetadata.imageName}>
+              <h3>{imageMetadata.name}</h3>
+              <p>{imageMetadata.description}</p>
+              <img
+                src={`http://localhost:3001/image/${imageMetadata.name}`}
+                alt={imageMetadata.name}
+                style={{ maxWidth: "100%" }}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
     </div>
   );
 };

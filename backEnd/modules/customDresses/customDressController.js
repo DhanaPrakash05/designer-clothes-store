@@ -44,6 +44,7 @@ const uploadController = {
     }
   },
 
+
   getImage: (req, res) => {
     const imageName = req.params.name;
     const imagePath = path.join(__dirname, "../../", "uploads", imageName);

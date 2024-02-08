@@ -33,7 +33,6 @@ schema.pre("save", async function (next) {
 
 schema.statics.loginUser = async function (email, password) {
   const user = await this.findOne({ email });
-
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
     if (auth) {

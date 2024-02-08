@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const TailorCategories = () => {
     const navigate=useNavigate();
     function goToCategories(){
-        navigate('/components/Categories');
+        navigate('/components/Menu');
     }
 
   return (

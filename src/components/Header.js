@@ -12,12 +12,21 @@ const Header = (pro) => {
     setValue(val);
   };
   const navigate=useNavigate();
-  function goToCategories(){
-    navigate('/components/Categories');
+  function goToMenu(){
+    navigate('/components/Menu');
+  }
+  function goToTailors(){
+    navigate('/components/Tailors');
+  }
+  function goToServices(){
+    navigate('/');
+  }
+  function goToAboutUs(){
+    navigate('/');
   }
   return (
     <div className={css.headContainer}>
-      {value && <LogInSignUp props={value} Hide={() => setValue(null)} />}
+      {value && <LogInSignUp props={{value:value,location:'Menu'}} Hide={() => setValue(null)} />}
       <div className={css.header} >
         <div>
           <img src={crown} alt="crown" />
@@ -34,18 +43,18 @@ const Header = (pro) => {
         </div>
       </div>
       <div className={css.navBar}>
-        <div onClick={goToCategories}>
+        <div onClick={goToMenu}>
           
           <a>Categories</a>
         
         </div>
-        <div>
+        <div  onClick={goToTailors}>
           <a>Tailors</a>
         </div>
-        <div>
+        <div onClick={goToServices}>
           <a>Services</a>
         </div>
-        <div>
+        <div onClick={goToAboutUs}>
           <a>About us</a>
         </div>
       </div>

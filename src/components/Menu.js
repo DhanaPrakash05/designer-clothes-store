@@ -1,5 +1,5 @@
 import React from "react";
-import css from "../css/Categories.module.css";
+import css from "../css/Menu.module.css";
 import UtilityBar from "./UtilityBar";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
@@ -10,6 +10,7 @@ import img5 from "../images/stylefeed5.jpg";
 import img6 from "../images/stylefeed6.jpg";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import LogInSignUp from "./LogInSignUp";
 
 const Categories = () => {
   const navigate = useNavigate();
@@ -60,11 +61,16 @@ const Categories = () => {
 
     fetchAllImageMetadata();
   }, []);
-
+  const [value, setValue] = useState(null);
+  const chooseValue = (val) => {
+    setValue(val);
+  };
   return (
     <div className={css.body}>
       <UtilityBar />
-
+      <li onClick={() => chooseValue("signUp")}>Sign Up</li>
+      <li onClick={() => chooseValue("login")}>Log In</li>
+      {value && <LogInSignUp props={value} Hide={() => setValue(null)} />}
       {/* sticky toggler */}
       <div className={css.option}>
         <div>Custom</div>

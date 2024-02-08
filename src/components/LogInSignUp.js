@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import css from "../css/LoginSignUp.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const LogInSignUp = (props) => {
+const LogInSignUp = (props,location) => {
+  const navigate=useNavigate();
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isSignUpVisible, setIsSignUpVisible] = useState(false);
   const [animationType, setAnimationType] = useState("slideDown");
-
   useEffect(() => {
     setAnimationType("slideDown");
-    if (props.props === "signUp") {
+    if (props.props.value === "signUp") {
       setIsSignUpVisible(true);
       setIsLoginVisible(false);
-    } else if (props.props === "login") {
+    } else if (props.props.value === "login") {
       setIsLoginVisible(true);
       setIsSignUpVisible(false);
     }
-  }, [props.props]);
+  }, [props.props.value]);
 
   const showLogin = () => {
     setIsLoginVisible(true);
@@ -240,12 +241,13 @@ const LogInSignUp = (props) => {
           password,
         },{
           withCredentials:true
-        });
-        console.log("Server response:", response.data);
+        });     
+        navigate(`/components/${props.props.location}`)
       } catch (error) {
         const {email,password} =error.response.data;
         setEmailError(email);
         setPasswordError(password);
+        console.log(error)
         setLoginSubmitError("Error during login. Please try again.");
       }
     }
